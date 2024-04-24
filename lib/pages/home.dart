@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
           child: AppBar(
             leading: IconButton(
-              icon: const Icon(Icons.menu_rounded),
+              icon: Image.asset('assets/images/menu_icon.png'),
               onPressed: () {},
             ),
             title: Text(
