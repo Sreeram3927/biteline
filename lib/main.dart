@@ -16,6 +16,17 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 250, 75, 12),
         scaffoldBackgroundColor: const Color(0xFFf2f2f2),
+
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          actionsIconTheme: IconThemeData(
+            color: Color(0xffaaaaaa),
+          ),
+        ),
         
         textTheme: const TextTheme(
 

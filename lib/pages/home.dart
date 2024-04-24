@@ -1,4 +1,3 @@
-import 'package:biteline/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,36 +6,39 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(54.6, 74, 0, 0),
-        child: Column(
-          children: [
-            // AppBar(
-            //   leading: const Icon(Icons.menu),
-            //   title: Text(
-            //     'Home Page',
-            //     style: Theme.of(context).textTheme.headlineSmall,
-            //   ),
-            //   toolbarHeight: 16.0,
-            // ),
-            TopBar(
-              title: 'Bite Line',
-              leading: IconButton(
-                icon: const Icon(Icons.menu),
-                onPressed: () {},
-              ),
-              trailing: IconButton(
+      
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
+          child: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.menu_rounded),
+              onPressed: () {},
+            ),
+            title: Text(
+              'Bite Line',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            centerTitle: true,
+            actions: [
+              IconButton(
                 icon: const Icon(Icons.shopping_cart_rounded),
                 onPressed: () {},
-              )
-            ),
-            Expanded(
-              child: Center(
-                child: Text('Hello World!'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+      ),
+
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Text('Hello World!'),
+            ),
+          ),
+        ],
       )
     );
   }
