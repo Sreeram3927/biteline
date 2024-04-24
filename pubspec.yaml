@@ -17,3 +17,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: SFProDisplay
+      fonts:
+        - asset: assets/fonts/SFPRODISPLAY-BLACK-ITALIC.ttf
+        - asset: assets/fonts/SFPRODISPLAY-BOLD.ttf
+        - asset: assets/fonts/SFPRODISPLAY-HEAVY-ITALIC.ttf
+        - asset: assets/fonts/SFPRODISPLAY-LIGHT-ITALIC.ttf
+        - asset: assets/fonts/SFPRODISPLAY-MEDIUM.ttf
+        - asset: assets/fonts/SFPRODISPLAY-REGULAR.ttf
+        - asset: assets/fonts/SFPRODISPLAY-SEMIBOLD-ITALIC.ttf
+        - asset: assets/fonts/SFPRODISPLAY-THINI-TALIC.ttf
+        - asset: assets/fonts/SFPRODISPLAY-ULTRALIGHT-ITALIC.ttf

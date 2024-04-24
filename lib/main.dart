@@ -12,6 +12,57 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primaryColor: const Color.fromARGB(255, 250, 75, 12),
+        
+        textTheme: const TextTheme(
+
+          headlineLarge: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 34,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
+          headlineMedium: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
+          headlineSmall: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
+          titleMedium: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
+          bodyMedium: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 17,
+            fontWeight: FontWeight.normal,
+            color: Color.fromARGB(255, 123, 123, 124),
+          ),
+
+          bodySmall: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 15,
+            fontWeight: FontWeight.normal,
+            color: Color.fromARGB(255, 123, 123, 124),
+          ),
+
+        ),
+      ),
+
       home: const HomePage(),
     );
   }

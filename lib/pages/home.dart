@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: Text('Bite Line', style: Theme.of(context).textTheme.headlineSmall,),
       ),
       body: Center(
         child: Text('Hello World!'),
