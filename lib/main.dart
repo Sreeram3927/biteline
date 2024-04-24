@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 250, 75, 12),
+        scaffoldBackgroundColor: const Color(0xFFf2f2f2),
         
         textTheme: const TextTheme(
 
@@ -35,6 +36,7 @@ class MainApp extends StatelessWidget {
           headlineSmall: TextStyle(
             fontFamily: 'SFProDisplay',
             fontSize: 18,
+            letterSpacing: 1.25,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
