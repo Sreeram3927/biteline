@@ -8,8 +8,7 @@ class FoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 16),
+    return SizedBox(
       width: 160,
       child: Card(
         elevation: 4,

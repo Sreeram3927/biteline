@@ -1,4 +1,5 @@
 import 'package:biteline/models/food.dart';
+import 'package:biteline/pages/all_foods/all_foods.dart';
 import 'package:biteline/widgets/food_card.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,17 @@ class FoodType extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             foods.length < 5 ? const SizedBox.shrink() : TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AllFoodsPage(
+                      title: foodType,
+                      foods: foods,
+                    ),
+                  )
+                );
+              },
               child: Text(
                 'View All',
                 style: TextStyle(
@@ -43,7 +54,10 @@ class FoodType extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: foods.length < 5 ? foods.length : 5,
             itemBuilder: (context, index) {
-              return FoodCard(food: foods[index]);
+              return Container(
+                margin: const EdgeInsets.only(right: 16),
+                child: FoodCard(food: foods[index]),
+              );
             },
           ),
         ),
