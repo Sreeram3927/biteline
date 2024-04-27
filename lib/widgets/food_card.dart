@@ -35,6 +35,7 @@ class FoodCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
               ),
               
               Text(

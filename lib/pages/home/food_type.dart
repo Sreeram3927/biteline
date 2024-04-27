@@ -23,7 +23,7 @@ class FoodType extends StatelessWidget {
               foodType,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            TextButton(
+            foods.length < 5 ? const SizedBox.shrink() : TextButton(
               onPressed: () {},
               child: Text(
                 'View All',
@@ -41,7 +41,7 @@ class FoodType extends StatelessWidget {
           height: 220,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: foods.length,
+            itemCount: foods.length < 5 ? foods.length : 5,
             itemBuilder: (context, index) {
               return FoodCard(food: foods[index]);
             },
