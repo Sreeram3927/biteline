@@ -42,6 +42,19 @@ class MainApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            elevation: MaterialStateProperty.all(7.0),
+            backgroundColor: MaterialStateProperty.all(const Color(0xffFA4A0C)),
+            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+        ),
         
         textTheme: const TextTheme(
 

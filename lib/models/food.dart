@@ -7,6 +7,7 @@ class Food {
   final double price;
   final double rating;
   final String description;
+  bool isFavorite;
 
   Food({
     required this.id,
@@ -16,5 +17,11 @@ class Food {
     required this.price,
     required this.rating,
     required this.description,
+    this.isFavorite = false,
   });
+
+  void toggleFavorite() {
+    isFavorite = !isFavorite;
+  }
+  
 }
