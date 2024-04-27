@@ -55,7 +55,11 @@ class _PageManagerState extends State<PageManager> {
       body: PageView(
         controller: _pageController,
         // physics: const NeverScrollableScrollPhysics(),
-        onPageChanged: _changePage,
+        onPageChanged: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         children: const [
           HomePage(),
           Placeholder(),

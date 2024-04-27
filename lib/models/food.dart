@@ -1,5 +1,7 @@
+import 'package:biteline/data/user.dart';
 
 class Food {
+
   final int id;
   final String name;
   final String imageUrl;
@@ -8,6 +10,8 @@ class Food {
   final double rating;
   final String description;
   bool isFavorite;
+
+  static final User _user = User();
 
   Food({
     required this.id,
@@ -18,10 +22,13 @@ class Food {
     required this.rating,
     required this.description,
     this.isFavorite = false,
-  });
+  }) {
+    isFavorite = _user.isFavorite(this);
+  }
 
   void toggleFavorite() {
     isFavorite = !isFavorite;
+    _user.toggleFavorite(this);
   }
   
 }

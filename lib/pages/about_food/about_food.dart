@@ -1,3 +1,4 @@
+import 'package:biteline/data/user.dart';
 import 'package:biteline/models/food.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ class AboutFoodPage extends StatefulWidget {
 }
 
 class _AboutFoodPageState extends State<AboutFoodPage> {
+
+  static final User _user = User();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +44,7 @@ class _AboutFoodPageState extends State<AboutFoodPage> {
                   setState(() {
                     widget.food.toggleFavorite();
                   });
+                  print(_user.getFavorites);
                 },
               ),
             ],
@@ -93,6 +98,7 @@ class _AboutFoodPageState extends State<AboutFoodPage> {
         padding: const EdgeInsets.only(bottom: 32.0, left: 64.0, right: 64.0),
         child: ElevatedButton(
           onPressed: () {
+            _user.addToCart(widget.food);
             Navigator.pop(context);
           },
           child: Text(
