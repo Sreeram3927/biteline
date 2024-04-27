@@ -1,3 +1,4 @@
+import 'package:biteline/pages/home/home.dart';
 import 'package:flutter/material.dart';
 
 class PageManager extends StatefulWidget {
@@ -10,10 +11,16 @@ class PageManager extends StatefulWidget {
 class _PageManagerState extends State<PageManager> {
 
   int _selectedIndex = 0;
+  final PageController _pageController = PageController();
 
   void _changePage(int index) {
     setState(() {
       _selectedIndex = index;
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
     });
   }
 
@@ -45,13 +52,14 @@ class _PageManagerState extends State<PageManager> {
         ),
       ),
 
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text('Hello World!'),
-            ),
-          ),
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: const [
+          HomePage(),
+          Placeholder(),
+          Placeholder(),
+          Placeholder(),
         ],
       ),
 
