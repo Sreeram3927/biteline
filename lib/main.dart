@@ -67,9 +67,23 @@ class MainApp extends StatelessWidget {
             color: Colors.black,
           ),
 
+          titleLarge: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
           titleMedium: TextStyle(
             fontFamily: 'SFProDisplay',
             fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+
+          titleSmall: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 16,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
