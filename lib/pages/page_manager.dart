@@ -1,4 +1,5 @@
 import 'package:biteline/pages/home/home.dart';
+import 'package:biteline/pages/search/search.dart';
 import 'package:flutter/material.dart';
 
 class PageManager extends StatefulWidget {
@@ -62,7 +63,7 @@ class _PageManagerState extends State<PageManager> {
         },
         children: const [
           HomePage(),
-          Placeholder(),
+          SearchPage(),
           Placeholder(),
           Placeholder(),
         ],

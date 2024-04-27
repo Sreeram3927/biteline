@@ -12,7 +12,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  final Map<String, List<Food>> _foods = FoodData().getDummyData(); 
+  static final _foodData = FoodData();
+  final Map<String, List<Food>> _foods = _foodData.getFoods; 
 
   @override
   Widget build(BuildContext context) {
