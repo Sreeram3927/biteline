@@ -51,6 +51,14 @@ class FoodData {
     ],
   };
 
+  static List<Food> get getAllFoods {
+    List<Food> allFoods = [];
+    for (int i = 0; i < foodTypes.length; i++) {
+      allFoods.addAll(foods[foodTypes[i]]!);
+    }
+    return allFoods;
+  }
+
   void generateDummyData() {
     for (int j = 0; j < foodTypes.length; j++) {
       for (int i = 0; i < 10; i++) {
