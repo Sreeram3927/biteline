@@ -1,4 +1,4 @@
-import 'package:biteline/pages/home.dart';
+import 'package:biteline/pages/page_manager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
 
       themeMode: ThemeMode.light,
       theme: ThemeData(
+        
         primaryColor: const Color.fromARGB(255, 250, 75, 12),
         scaffoldBackgroundColor: const Color(0xFFf2f2f2),
 
@@ -25,6 +26,20 @@ class MainApp extends StatelessWidget {
           ),
           actionsIconTheme: IconThemeData(
             color: Color(0xffaaaaaa),
+          ),
+        ),
+
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: Color(0xffFA4A0C),
+          unselectedItemColor: Color(0xffADADAF),
+          type: BottomNavigationBarType.shifting,
+          elevation: 0,
+          backgroundColor: Color(0xFFf2f2f2),
+
+          selectedLabelStyle: TextStyle(
+            fontFamily: 'SFProDisplay',
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
           ),
         ),
         
@@ -76,7 +91,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
 
-      home: const HomePage(),
+      home: const PageManager(),
     );
   }
 }
