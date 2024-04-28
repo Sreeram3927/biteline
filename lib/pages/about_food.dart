@@ -1,6 +1,7 @@
 import 'package:biteline/data/user.dart';
 import 'package:biteline/models/food.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AboutFoodPage extends StatefulWidget {
   final Food food;
@@ -161,6 +162,14 @@ class _AboutFoodPageState extends State<AboutFoodPage> {
               onPressed: () {
                 _user.addToCart(widget.food);
                 Navigator.pop(context);
+                Fluttertoast.showToast(
+                  msg: 'Added to Cart',
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.SNACKBAR,
+                  backgroundColor: Theme.of(context).primaryColor,
+                  textColor: Colors.white,
+                  fontSize: 16.0,
+                );
               },
               child: Text(
                 'Add to Cart',

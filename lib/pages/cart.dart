@@ -198,7 +198,7 @@ class _CartPageState extends State<CartPage> {
       builder: (context) {
         return AlertDialog(
           title: const Text('Payment Successful'),
-          content: const Text('Your order has been placed successfully.'),
+          content: const Text('Your order has been placed successfully. Check your orders page for stauts.'),
           actions: [
             TextButton(
               onPressed: () {
