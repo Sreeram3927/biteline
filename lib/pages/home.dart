@@ -1,6 +1,6 @@
 import 'package:biteline/data/food_data.dart';
 import 'package:biteline/models/food.dart';
-import 'package:biteline/pages/home/food_type.dart';
+import 'package:biteline/widgets/food_type.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

@@ -1,9 +1,9 @@
-import 'package:biteline/pages/cart/cart.dart';
-import 'package:biteline/pages/favourites/favourites.dart';
-import 'package:biteline/pages/home/home.dart';
-import 'package:biteline/pages/orders/orders.dart';
-import 'package:biteline/pages/profile/profile.dart';
-import 'package:biteline/pages/search/search.dart';
+import 'package:biteline/pages/cart.dart';
+import 'package:biteline/pages/favourites.dart';
+import 'package:biteline/pages/home.dart';
+import 'package:biteline/pages/orders.dart';
+import 'package:biteline/pages/profile.dart';
+import 'package:biteline/pages/search.dart';
 import 'package:flutter/material.dart';
 
 class PageManager extends StatefulWidget {

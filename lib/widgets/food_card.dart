@@ -1,4 +1,4 @@
-import 'package:biteline/pages/about_food/about_food.dart';
+import 'package:biteline/pages/about_food.dart';
 import 'package:flutter/material.dart';
 import 'package:biteline/models/food.dart';
 

@@ -1,5 +1,5 @@
 import 'package:biteline/models/food.dart';
-import 'package:biteline/pages/all_foods/all_foods.dart';
+import 'package:biteline/pages/all_foods.dart';
 import 'package:biteline/widgets/food_card.dart';
 import 'package:flutter/material.dart';
 
