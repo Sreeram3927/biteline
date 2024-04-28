@@ -15,8 +15,17 @@ class FoodCard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => AboutFoodPage(food: food),
+            PageRouteBuilder(
+              transitionDuration: Duration(milliseconds: 500),
+              pageBuilder: (_, __, ___) => AboutFoodPage(
+                food: food,
+              ),
+              transitionsBuilder: (_, animation, __, child) {
+                return SlideTransition(
+                  position: Tween(begin: Offset(1.0, 0.0), end: Offset.zero).animate(animation),
+                  child: child,
+                );
+              },
             ),
           );
         },
@@ -32,11 +41,14 @@ class FoodCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 
-                Image.network(
-                  food.imageUrl,
-                  width: double.infinity,
-                  height: 100,
-                  fit: BoxFit.scaleDown,
+                Hero(
+                  tag: '${food.id}_image',
+                  child: Image.network(
+                    food.imageUrl,
+                    width: double.infinity,
+                    height: 100,
+                    fit: BoxFit.scaleDown,
+                  ),
                 ),
             
                 Text(

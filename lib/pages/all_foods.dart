@@ -20,15 +20,21 @@ class AllFoodsPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
           child: AppBar(
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_rounded),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+            leading: Hero(
+              tag: 'ios_back_button',
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back_ios_rounded),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
             ),
-            title: Text(
-              title,
-              style: Theme.of(context).textTheme.headlineSmall,
+            title: Hero(
+              tag: 'foodType-$title',
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ),
             centerTitle: true,
           ),

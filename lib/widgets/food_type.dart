@@ -20,20 +20,30 @@ class FoodType extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              foodType,
-              style: Theme.of(context).textTheme.titleLarge,
+            Hero(
+              tag: 'foodType-$foodType',
+              child: Text(
+                foodType,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             ),
             foods.length < 5 ? const SizedBox.shrink() : TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => AllFoodsPage(
+                  PageRouteBuilder(
+                    transitionDuration: const Duration(milliseconds: 300),
+                    pageBuilder: (_, __, ___) => AllFoodsPage(
                       title: foodType,
                       foods: foods,
                     ),
-                  )
+                    transitionsBuilder: (_, animation, __, child) {
+                      return SlideTransition(
+                        position: Tween(begin: const Offset(0.0, 1.0), end: Offset.zero).animate(animation),
+                        child: child,
+                      );
+                    },
+                  ),
                 );
               },
               child: Text(

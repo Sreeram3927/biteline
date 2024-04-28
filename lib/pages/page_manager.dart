@@ -38,16 +38,26 @@ class _PageManagerState extends State<PageManager> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
           child: AppBar(
-            leading: IconButton(
-              icon: const Icon(Icons.search_rounded),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SearchPage(),
-                  )
-                );
-              },
+            leading: Hero(
+              tag: 'search_button',
+              child: IconButton(
+                icon: const Icon(Icons.search_rounded),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: const Duration(milliseconds: 300),
+                        pageBuilder: (_, __, ___) => const SearchPage(),
+                        transitionsBuilder: (_, animation, __, child) {
+                          return SlideTransition(
+                            position: Tween(begin: const Offset(-1.0, 0.0), end: Offset.zero).animate(animation),
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
+                },
+              ),
             ),
             title: Text(
               'Bite Line',
@@ -60,9 +70,16 @@ class _PageManagerState extends State<PageManager> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const CartPage(),
-                    )
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 300),
+                      pageBuilder: (_, __, ___) => const CartPage(),
+                      transitionsBuilder: (_, animation, __, child) {
+                        return SlideTransition(
+                          position: Tween(begin: const Offset(0.0, 1.0), end: Offset.zero).animate(animation),
+                          child: child,
+                        );
+                      },
+                    ),
                   );
                 },
               ),

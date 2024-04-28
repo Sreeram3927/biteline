@@ -47,15 +47,18 @@ class _SearchPageState extends State<SearchPage> {
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
           child: AppBar(
 
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-              onPressed: () {
-                if (_searchFocus.hasFocus) {
-                  _searchFocus.unfocus();
-                } else {
-                  Navigator.pop(context);
-                }
-              },
+            leading: Hero(
+              tag: 'ios_back_button',
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                onPressed: () {
+                  if (_searchFocus.hasFocus) {
+                    _searchFocus.unfocus();
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
+              ),
             ),
 
             title: TextField(
@@ -67,7 +70,6 @@ class _SearchPageState extends State<SearchPage> {
                 border: InputBorder.none,
               ),
               style: Theme.of(context).textTheme.bodyMedium,
-              // onChanged: _filterFoods,
               onSubmitted: (value) {
                 _filterFoods(value);
                 _searchFocus.unfocus();
@@ -76,12 +78,15 @@ class _SearchPageState extends State<SearchPage> {
             centerTitle: true,
 
             actions: [
-              IconButton(
-                icon: const Icon(Icons.search_rounded, color: Colors.black),
-                onPressed: () {
-                  _filterFoods(_searchController.text);
-                  _searchFocus.unfocus();
-                },
+              Hero(
+                tag: 'search_button',
+                child: IconButton(
+                  icon: const Icon(Icons.search_rounded, color: Colors.black),
+                  onPressed: () {
+                    _filterFoods(_searchController.text);
+                    _searchFocus.unfocus();
+                  },
+                ),
               ),
             ],
           ),
