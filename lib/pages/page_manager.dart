@@ -37,8 +37,15 @@ class _PageManagerState extends State<PageManager> {
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
           child: AppBar(
             leading: IconButton(
-              icon: Image.asset('assets/images/menu_icon.png'),
-              onPressed: () {},
+              icon: const Icon(Icons.search_rounded),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchPage(),
+                  )
+                );
+              },
             ),
             title: Text(
               'Bite Line',
@@ -72,7 +79,7 @@ class _PageManagerState extends State<PageManager> {
         },
         children: const [
           HomePage(),
-          SearchPage(),
+          Placeholder(),
           OrdersPage(),
           Placeholder(),
         ],
@@ -88,8 +95,8 @@ class _PageManagerState extends State<PageManager> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_rounded),
-            label: 'Search',
+            icon: Icon(Icons.favorite_rounded),
+            label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history_rounded),
