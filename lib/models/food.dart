@@ -10,6 +10,7 @@ class Food {
   final double rating;
   final String description;
   bool isFavorite;
+  int quantity;
 
   static final User _user = User();
 
@@ -22,6 +23,7 @@ class Food {
     required this.rating,
     required this.description,
     this.isFavorite = false,
+    this.quantity = 1,
   }) {
     isFavorite = _user.isFavorite(this);
   }

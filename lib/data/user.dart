@@ -19,10 +19,21 @@ class User {
   List<Food> get getCart => cartFoods;
   static List<Food> cartFoods = [];
   void addToCart(Food food) {
-    cartFoods.add(food);
+    if (cartFoods.contains(food)) {
+      cartFoods[cartFoods.indexOf(food)].quantity++;
+    } else {
+      cartFoods.add(food);
+    }
   }
   void removeFromCart(Food food) {
     cartFoods.remove(food);
+  }
+  void changeQuantity(Food food, int newQuantity) {
+    if (newQuantity > 0) {
+      cartFoods[cartFoods.indexOf(food)].quantity = newQuantity;
+    } else {
+      removeFromCart(food);
+    }
   }
 
 }

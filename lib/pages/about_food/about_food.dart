@@ -44,7 +44,6 @@ class _AboutFoodPageState extends State<AboutFoodPage> {
                   setState(() {
                     widget.food.toggleFavorite();
                   });
-                  print(_user.getFavorites);
                 },
               ),
             ],

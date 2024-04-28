@@ -1,3 +1,4 @@
+import 'package:biteline/pages/cart/cart.dart';
 import 'package:biteline/pages/home/home.dart';
 import 'package:biteline/pages/search/search.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,14 @@ class _PageManagerState extends State<PageManager> {
             actions: [
               IconButton(
                 icon: const Icon(Icons.shopping_cart_rounded),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartPage(),
+                    )
+                  );
+                },
               ),
             ],
           ),
