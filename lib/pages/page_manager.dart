@@ -1,5 +1,6 @@
 import 'package:biteline/pages/cart/cart.dart';
 import 'package:biteline/pages/home/home.dart';
+import 'package:biteline/pages/orders/orders.dart';
 import 'package:biteline/pages/search/search.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,7 @@ class _PageManagerState extends State<PageManager> {
         children: const [
           HomePage(),
           SearchPage(),
-          Placeholder(),
+          OrdersPage(),
           Placeholder(),
         ],
       ),

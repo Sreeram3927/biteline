@@ -1,5 +1,6 @@
 
 import 'package:biteline/models/food.dart';
+import 'package:biteline/models/order.dart';
 
 class User {
   
@@ -35,5 +36,18 @@ class User {
       removeFromCart(food);
     }
   }
+  void clearCart() {
+    cartFoods.clear();
+  }
 
+  List<Order> get getOrders => orders;
+  static List<Order> orders = [];
+  void addOrder(List<Food> foodOrder) {
+    orders.add(Order(
+      oid: orders.length,
+      foods: foodOrder,
+      orderTime: DateTime.now(),
+    ));
+    clearCart();
+  }
 }

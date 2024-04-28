@@ -16,12 +16,10 @@ class _CartPageState extends State<CartPage> {
   late List<Food> _cart;
 
   void _changeQuantity(Food food, int newQuantity) {
-    print('_changeQuantity, cart $newQuantity');
     setState(() {
       _user.changeQuantity(food, newQuantity);
       _cart = List.from(_user.getCart);
     });
-    print('_changeQuantity, food ${food.quantity}');
   }
 
   @override
@@ -73,14 +71,9 @@ class _CartPageState extends State<CartPage> {
         padding: const EdgeInsets.only(bottom: 32.0, left: 64.0, right: 64.0),
         child: ElevatedButton(
           onPressed: () {
-            // Navigator.pop(context);
+            _user.addOrder(_cart);
+            Navigator.pop(context);
             // print(_cart);
-            for (var food in _cart) {
-              print('${food.name} x ${food.quantity}');
-            }
-            for (var food in _user.getCart) {
-              print('_user ${food.name} x ${food.quantity}');
-            }
           },
           child: Text(
             'Checkout',
