@@ -1,7 +1,10 @@
+import 'package:biteline/data/user.dart';
 import 'package:biteline/pages/page_manager.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await User().init();
   runApp(const MainApp());
 }
 

@@ -5,7 +5,7 @@ import 'package:biteline/models/food.dart';
 class FoodCard extends StatelessWidget {
   final Food food;
 
-  const FoodCard({Key? key, required this.food}) : super(key: key);
+  const FoodCard({super.key, required this.food});
 
   @override
   Widget build(BuildContext context) {

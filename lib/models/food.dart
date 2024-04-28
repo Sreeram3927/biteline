@@ -32,5 +32,33 @@ class Food {
     isFavorite = !isFavorite;
     _user.toggleFavorite(this);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'imageUrl': imageUrl,
+      'type': type,
+      'price': price,
+      'rating': rating,
+      'description': description,
+      'isFavorite': isFavorite,
+      'quantity': quantity,
+    };
+  }
+
+  factory Food.fromJson(Map<String, dynamic> json) {
+    return Food(
+      id: json['id'],
+      name: json['name'],
+      imageUrl: json['imageUrl'],
+      type: json['type'],
+      price: json['price'].toDouble(),
+      rating: json['rating'].toDouble(),
+      description: json['description'],
+      isFavorite: json['isFavorite'] ?? false,
+      quantity: json['quantity'] ?? 1,
+    );
+  }
   
 }
