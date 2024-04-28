@@ -16,13 +16,13 @@ class FoodCard extends StatelessWidget {
           Navigator.push(
             context,
             PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 500),
+              transitionDuration: const Duration(milliseconds: 500),
               pageBuilder: (_, __, ___) => AboutFoodPage(
                 food: food,
               ),
               transitionsBuilder: (_, animation, __, child) {
                 return SlideTransition(
-                  position: Tween(begin: Offset(1.0, 0.0), end: Offset.zero).animate(animation),
+                  position: Tween(begin: const Offset(1.0, 0.0), end: Offset.zero).animate(animation),
                   child: child,
                 );
               },

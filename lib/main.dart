@@ -58,6 +58,29 @@ class MainApp extends StatelessWidget {
             ),
           ),
         ),
+
+        dialogTheme: const DialogTheme(
+          backgroundColor: Colors.white,
+        ),
+
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            foregroundColor: MaterialStateProperty.all(const Color(0xffFA4A0C)),
+          ),          
+        ),
+
+        listTileTheme: ListTileThemeData(
+          contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
         
         textTheme: const TextTheme(
 

@@ -46,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         const SizedBox(height: 5,),
                         Text('sd6942@srmist.edu.in', style: Theme.of(context).textTheme.bodySmall,),
                         const SizedBox(height: 5,),
-                        Text('No 15 uti street off ovie palace road effurun delta state', style: Theme.of(context).textTheme.bodySmall,),
+                        Text('SRM Hi-Tech Building\nSRM Nagar, Kattankulathur\nTamil Nadu 603203\nIndia', style: Theme.of(context).textTheme.bodySmall,),
                       ]
                     ),
                   ),

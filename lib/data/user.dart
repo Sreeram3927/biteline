@@ -77,7 +77,7 @@ class User {
   static List<Order> orders = [];
   void addOrder(List<Food> foodOrder) {
     orders.add(Order(
-      oid: orders.length,
+      oid: orders.length + 1,
       foods: foodOrder,
       orderTime: DateTime.now(),
     ));

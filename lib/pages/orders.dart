@@ -33,6 +33,7 @@ class _OrdersPageState extends State<OrdersPage> {
               child: ListTile(
 
                 leading: CircleAvatar(
+                  backgroundColor: Theme.of(context).primaryColor.withAlpha(175),
                   child: Text(
                     '#${order.oid.toString()}',
                     style: Theme.of(context).textTheme.titleSmall,

@@ -14,6 +14,7 @@ class _CartPageState extends State<CartPage> {
 
   static final User _user = User();
   late List<Food> _cart;
+  String _paymentStatus = 'Pending';
 
   void _changeQuantity(Food food, int newQuantity) {
     setState(() {
@@ -78,11 +79,79 @@ class _CartPageState extends State<CartPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 32.0, left: 64.0, right: 64.0),
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
+            // if (_cart.isNotEmpty) {
+            //   _user.addOrder(_cart);
+            // }
+            // Navigator.pop(context);
             if (_cart.isNotEmpty) {
-              _user.addOrder(_cart);
+              // setState(() {
+              //   _paymentStatus = 'Processing';
+              // });
+              _paymentStatus = await showModalBottomSheet(
+                isDismissible: false,
+                context: context,
+                builder: (context) {
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                      return Container(
+                        height: 200.0,
+                        color: Colors.white,
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Test Payment',
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            const SizedBox(height: 16.0),
+                            Text(
+                              'Processing Payment...',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            const SizedBox(height: 16.0),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context, 'failed');
+                                  },
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                                  ),
+                                  child: const Text('Deny'),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context, 'success');
+                                  },
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                                  ),
+                                  child: const Text('Approve'),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              );
+              
+              if (_paymentStatus == 'success') {
+                _user.addOrder(_cart);
+                _paymentSuccessful();
+              } else {
+                _paymentFailed();
+              }
+
+            } else {
+              Navigator.pop(context);
             }
-            Navigator.pop(context);
           },
           child: Text(
             _cart.isEmpty ? 'Add Foods to Cart' : 'Place Order (₹${_getTotal()})',
@@ -96,7 +165,7 @@ class _CartPageState extends State<CartPage> {
     );
   }
 
- Widget _cardEmpty() {
+  Widget _cardEmpty() {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -121,5 +190,46 @@ class _CartPageState extends State<CartPage> {
         ],
       ),
     );
- }
+  }
+
+  void _paymentSuccessful() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Payment Successful'),
+          content: const Text('Your order has been placed successfully.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _paymentFailed() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Payment Failed'),
+          content: const Text('Your order could not be placed. Please try again later.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
