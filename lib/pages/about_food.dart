@@ -13,6 +13,13 @@ class AboutFoodPage extends StatefulWidget {
 class _AboutFoodPageState extends State<AboutFoodPage> {
 
   static final User _user = User();
+  late Food _food;
+
+  @override
+  void initState() {
+    super.initState();
+    _food = widget.food;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,17 +111,65 @@ class _AboutFoodPageState extends State<AboutFoodPage> {
 
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 32.0, left: 64.0, right: 64.0),
-        child: ElevatedButton(
-          onPressed: () {
-            _user.addToCart(widget.food);
-            Navigator.pop(context);
-          },
-          child: Text(
-            'Add to Cart',
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              color: const Color(0xFFf2f2f2),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.all(0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      if (_food.quantity > 1) {
+                        _food.quantity -= 1;
+                      }
+                    });
+                  },
+                  child: const Icon(Icons.remove, size: 20.0,),
+                ),
+                
+                Text(
+                  _food.quantity.toString(), 
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.all(0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _food.quantity += 1;
+                    });
+                  },
+                  child: const Icon(Icons.add, size: 20.0,),
+                ),
+              ],
             ),
-          ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                _user.addToCart(widget.food);
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Add to Cart',
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: const Color(0xFFf2f2f2),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
 
