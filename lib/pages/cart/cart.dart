@@ -22,6 +22,14 @@ class _CartPageState extends State<CartPage> {
     });
   }
 
+  String _getTotal() {
+    double total = 0.0;
+    for (final food in _cart) {
+      total += food.price * food.quantity;
+    }
+    return total.toStringAsFixed(2);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -52,7 +60,7 @@ class _CartPageState extends State<CartPage> {
         ),
       ),
 
-      body: Padding(
+      body: _cart.isEmpty ? _cardEmpty() : Padding(
         padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
         child: ListView.builder(
           itemCount: _cart.length,
@@ -71,12 +79,13 @@ class _CartPageState extends State<CartPage> {
         padding: const EdgeInsets.only(bottom: 32.0, left: 64.0, right: 64.0),
         child: ElevatedButton(
           onPressed: () {
-            _user.addOrder(_cart);
+            if (_cart.isNotEmpty) {
+              _user.addOrder(_cart);
+            }
             Navigator.pop(context);
-            // print(_cart);
           },
           child: Text(
-            'Checkout',
+            _cart.isEmpty ? 'Add Foods to Cart' : 'Place Order (₹${_getTotal()})',
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
               color: const Color(0xFFf2f2f2),
             ),
@@ -86,4 +95,31 @@ class _CartPageState extends State<CartPage> {
 
     );
   }
+
+ Widget _cardEmpty() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.shopping_cart_outlined,
+            size: 200.0,
+            color: Colors.grey,
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'Your cart is empty',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16.0),
+          Text(
+            'Add foods to your cart to see them here.',
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+ }
 }

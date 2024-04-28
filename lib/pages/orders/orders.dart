@@ -22,43 +22,71 @@ class _OrdersPageState extends State<OrdersPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
-      child: ListView.builder(
-        itemCount: _orders.length,
-        itemBuilder: (context, index) {
-          final order = _orders[index];
-          return Card(
-            child: ListTile(
+    if (_orders.isNotEmpty) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
+        child: ListView.builder(
+          itemCount: _orders.length,
+          itemBuilder: (context, index) {
+            final order = _orders[index];
+            return Card(
+              child: ListTile(
 
-              leading: CircleAvatar(
-                child: Text(
-                  '#${order.oid.toString()}',
+                leading: CircleAvatar(
+                  child: Text(
+                    '#${order.oid.toString()}',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+
+                title: Text(
+                  'Ordered on ${order.orderTime.toString().substring(0, 16)}',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
-              ),
 
-              title: Text(
-                'Ordered on ${order.orderTime.toString().substring(0, 16)}',
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-
-              subtitle: Text(
-                'Status: ${order.status}',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-
-              trailing: Text(
-                '₹${order.total.toStringAsFixed(2)}',
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: Theme.of(context).primaryColor,
+                subtitle: Text(
+                  'Status: ${order.status}',
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
+
+                trailing: Text(
+                  '₹${order.total.toStringAsFixed(2)}',
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                
               ),
-              
+            );
+          },
+        ),
+      );
+    } else {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.hourglass_empty_rounded,
+              size: 200.0,
+              color: Colors.grey,
             ),
-          );
-        },
-      ),
-    );
+            const SizedBox(height: 16.0),
+            Text(
+              'No Order history found',
+              style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16.0),
+            Text(
+              'Order foods to see them here.',
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      );
+    }
   }
+
 }
