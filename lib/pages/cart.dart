@@ -119,7 +119,7 @@ class _CartPageState extends State<CartPage> {
                                     Navigator.pop(context, 'failed');
                                   },
                                   style: ButtonStyle(
-                                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                                    foregroundColor: WidgetStateProperty.all(Colors.white),
                                   ),
                                   child: const Text('Deny'),
                                 ),
@@ -128,7 +128,7 @@ class _CartPageState extends State<CartPage> {
                                     Navigator.pop(context, 'success');
                                   },
                                   style: ButtonStyle(
-                                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                                    foregroundColor: WidgetStateProperty.all(Colors.white),
                                   ),
                                   child: const Text('Approve'),
                                 ),

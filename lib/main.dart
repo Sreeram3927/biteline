@@ -48,10 +48,10 @@ class MainApp extends StatelessWidget {
 
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            elevation: MaterialStateProperty.all(7.0),
-            backgroundColor: MaterialStateProperty.all(const Color(0xffFA4A0C)),
-            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
-            shape: MaterialStateProperty.all(
+            elevation: WidgetStateProperty.all(7.0),
+            backgroundColor: WidgetStateProperty.all(const Color(0xffFA4A0C)),
+            padding: WidgetStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
+            shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -65,13 +65,13 @@ class MainApp extends StatelessWidget {
 
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
-            shape: MaterialStateProperty.all(
+            padding: WidgetStateProperty.all(const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0)),
+            shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            foregroundColor: MaterialStateProperty.all(const Color(0xffFA4A0C)),
+            foregroundColor: WidgetStateProperty.all(const Color(0xffFA4A0C)),
           ),          
         ),
 
